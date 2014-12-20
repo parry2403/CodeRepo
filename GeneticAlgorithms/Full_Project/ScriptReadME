@@ -1,0 +1,12 @@
+This file provides overview about the sample and how it is read by script.py
+
+The first line specifies the number and type of land types.
+The next line specifies the number of parcels foloowed by the adjacency list to provide info about each parcels neighbours.
+The next line again specifies the number of parcels and the following information is provided for each of the parcel
+example : 1 U 1 U R G
+Over here we specify that parcel 1 is currently of type U followed by boolean specifying whether current parcel is allowed to change which is then followed by list of conversions allowed.
+Next we specify the number of LandUse Types. It is followed by minimum maximum area for each type. We also provide information about b here.
+he next line specifies the number of parcels followed by the current parcel allocation along with the area of the parcel.
+Next all the other features for parcels are added per parcel. We have added Road Distance and Attractiveness for each parcel.
+
+In the end we specify the compatibility Matrix as well as conversion Matrix.

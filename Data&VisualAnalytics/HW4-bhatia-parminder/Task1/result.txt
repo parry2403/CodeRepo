@@ -1,0 +1,1 @@
+('accuracy', 0, ':  0.8147')('accuracy', 1, ':  0.8239')('accuracy', 2, ':  0.8222')('accuracy', 3, ':  0.8209')('accuracy', 4, ':  0.8222')('accuracy', 5, ':  0.8254')('accuracy', 6, ':  0.8241')('accuracy', 7, ':  0.8306')('accuracy', 8, ':  0.8224')('accuracy', 9, ':  0.8336')Average Accuracy: 0.8240

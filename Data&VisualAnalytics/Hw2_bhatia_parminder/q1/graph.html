@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://poloclub.gatech.edu/cse6242/2014fall/hw2/graph.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<style>
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+text fixedt {
+  fill : steelblue;
+  stroke: lightsteelblue;
+  stroke-width: .5px;
+  font: 20px sans-serif;
+
+}
+
+circle fixedc {
+  fill : lightsteelblue;
+  
+
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+</style>
+
+
+<title>Force Graphs</title>
+</head>
+
+<body>
+<script src="./graph_files/d3.v3.min.js"></script>
+<script src="./graph_files/d3.tip.v0.6.3.js"></script>
+<script>
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+ // .html(function(d) {
+  //console.log(d);
+   //     return "<strong>Frequency:</strong> <span style='color:red'>" + d.coolness + "</span>";
+ // })
+var tooltip = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("a simple tooltip");
+//Size of region to render on
+var width = 1500,
+    height = 800;
+
+//D3 force directed layout
+//Try playing with the charge and link distance
+var force = d3.layout.force()
+    .charge(-200)
+    .linkDistance(90)
+    .size([width, height]);
+
+//Add our canvas
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.call(tip);
+
+//Select the miserables data ;)
+d3.json("miserables.json", function(error, graph) {
+var gfNodes = []; 
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+//Add the links
+  var link = svg.selectAll(".link")
+      .data(force.links().filter(function(d) { 
+	  return d.source.coolness >0 && d.target.coolness >0; }))
+      .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+//Add the nodes
+ // var node = svg.selectAll(".node")
+  //    .data(graph.nodes)
+   //   .enter()
+	//  .append("circle")
+     // .attr("class", "node")
+      //.attr("r", 5)
+    //  .text(function(d){ return d.name;})
+     // .call(force.drag);
+	 
+//node.append("circle")
+ // .attr("r", 12);
+// var text = svg.selectAll("text")
+ //     .data(graph.nodes)
+  //    .enter()
+//	  .append("text"). .text(function(d) { return d.name; });
+//node.append("svg:text")
+ // .attr("dx", -6)
+ // .attr("dy", 6)
+ // .text(function(d) { return d.label; });
+ 
+  var node = svg.selectAll(".node")
+    .data(force.nodes().filter(function(d) { return d.coolness >0; }))
+	.enter().append("g")
+    .attr("class", "node")
+	.on("dblclick", dblclick)
+	.on("mouseover",mouseover)
+	.on("mouseout",mouseout)
+   .call(force.drag);
+
+node.append("circle")
+//5 +.04*d.coolness
+    .attr("r",function(d) { return 5 +.05*d.coolness})
+	.style("fill", function(d) { 
+									switch(d.group) {
+										case 0:
+											return 'red';
+										case 1:
+											return '#8c510a';
+										case 2:
+											return '#35978f';
+										case 3 : 
+											return '#c7eae5';
+										case 4 :
+											return '#f6e8c3'
+										case 5 :
+											return '#80cdc1'
+										case 6 :
+											return '#35978f'
+										case 7 :
+											return '#49006a'
+										case 8 :
+											return '#dfc27d'
+										case 10 :
+											return 'blue'
+										default:
+											return '#01665e'
+									}
+								}
+                        );
+
+node.append("text")
+    .attr("x", -7)
+    .attr("dy", ".35em")
+	.style("text-anchor", "end")
+	   .style("font-size","13px")
+    .text(function(d) {  if( d.coolness>25){return d.name;} });
+  
+ // node.append("title")
+  //    .text(function(d) { return d.name; });
+
+	  
+//	  node.append("circle")
+ //   .attr("r", 5);
+
+// add the text 
+
+
+
+
+ // var labels = node.append("text")
+ //     .text(function(d) { return d.name; });
+
+//Update stuff for animation:
+//   This takes the physics simulation for the force directed graph and
+//   sets the location of the nodes and edges to the new positions
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+	node
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+   // node.attr("cx", function(d) { return d.x; })
+    //    .attr("cy", function(d) { return d.y; });
+//	gnodes.attr("transform", function(d) { 
+  //      return 'translate(' + [d.x, d.y] + ')'; 
+//	texts.attr("transform", function(d) {  return "translate(" + d.x + "," + d.y + ")";
+  });
+   function mouseover(d)
+ {
+    tip.html("<div>" + "<strong>Name:</strong> <span style='color:red'>"
+       + d.name + "</span>"+ "</div>" + "<div>" +"<strong>Group:</strong> <span style='color:red'>"
+       + d.group + "</span>"+ "</div>"+"<div>" +"<strong>Coolness:</strong> <span style='color:red'>"
+       + d.coolness + "</span>"+ "</div>"
+        );
+	node
+.classed("mouseover", tip.show);
+  //   d3.select(labels[0][d.index]).style("visibility","visible")
+ }
+ 
+  function mouseout(d)
+ {
+   
+	node
+.classed("mouseover", tip.hide);
+  //   d3.select(labels[0][d.index]).style("visibility","visible")
+ }
+  function dblclick(d) {
+  if(!d.fixed) {
+   d3.select(this).select("text")
+		 .classed("fixedt",d.fixed = true);
+  d3.select(this).select("circle")
+	    .classed("fixedc",d.fixed = true)
+        .attr("r", 16)
+        .style("fill", "lightsteelblue");
+	//	d.fixed = true
+		}
+		else{
+		d3.select(this).select("circle")
+		    .classed("fixedc",d.fixed = true)
+		    .attr("r",function(d) { return 5 + .05*d.coolness})
+	        .style("fill", function(d) { 
+									switch(d.group) {
+										case 0:
+											return 'red';
+										case 1:
+											return '#8c510a';
+										case 2:
+											return '#762a83';
+										case 3 : 
+											return '#c7eae5';
+										case 4 :
+											return '#f6e8c3'
+										case 5 :
+											return '#80cdc1'
+										case 6 :
+											return '#35978f'
+										case 7 :
+											return '#49006a'
+										case 8 :
+											return '#dfc27d'
+										case 10 :
+											return 'blue'
+										default:
+											return '#f5f5f5'
+									}
+								}
+                        );
+
+		d.fixed =false
+		}
+  // d3.select(this).classed("circle.fixed", d.fixed = true);
+   
+}
+});
+
+</script></body></html>

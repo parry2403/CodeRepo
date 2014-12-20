@@ -1,0 +1,28 @@
+For all  the metrics , I tested on full graph as well as filtered graph having nodes greater than 4
+ Average Degree 1.847 in full 3.291 in filtered
+ Diameter 11
+ Average Path Length 5.26 in full and 3.62 in filtered
+
+
+
+
+
+
+
+
+PageRank
+
+Walking on air
+Birthday
+Cann't get you out of my head
+Toxic
+Torn
+Get Outta My  Way
+Applause
+Not Myself Tonight
+Waiting for Tonight
+Die Young
+
+
+
+

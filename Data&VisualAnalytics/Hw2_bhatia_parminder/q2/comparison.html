@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://poloclub.gatech.edu/cse6242/2014fall/hw2/graph.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<style>
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+</style>
+
+
+<title>Cars</title>
+</head>
+
+<body>
+<h1>
+Play with Graph --Move the Balls to Compare
+</h1>
+<div id="area1"></div>
+<div id="area2"></div>
+<script src="./graph_files/d3.v3.min.js"></script>
+<script src="./graph_files/d3.legend.js"></script>
+<script src="./graph_files/d3.tip.v0.6.3.js"></script>
+<script>
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+ // .html(function(d) {
+  ////console.log(d);
+   //     return "<strong>Frequency:</strong> <span style='color:red'>" + d.coolness + "</span>";
+ // })
+var tooltip = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("a simple tooltip");
+//Size of region to render on
+var width = 1500,
+    height = 600;
+
+//D3 force directed layout
+//Try playing with the charge and link distance
+var force = d3.layout.force()
+    .charge(-200)
+    .linkDistance(1000)
+    .size([width, height]);
+
+//Add our canvas
+var svg5 = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg5.call(tip);
+//Add our canvas
+var margin = {top: 20, right: 80, bottom: 30, left: 50},
+    width = 760 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%Y%m%d").parse;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d,i) {
+////console.log(x(i));
+
+	return x(i); })
+    .y(function(d) { return y(d.temperature); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+	var svg1 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	var svg2 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	var svg3 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//Select the miserables data ;)
+
+d3.json("cars.json", function(error, graph) {
+cars = graph.nodes
+//cars.append("Acura NSX coupe 2dr manual S")
+var audicar = []
+var bmwcar = []
+var chevcar = []
+var fordcar = []
+var audi = new RegExp("Audi");
+var bmw = new RegExp("BMW");
+var chev = new RegExp("Chevrolet");
+var ford = new RegExp("Mercedes");
+
+var all = [audicar,bmwcar,chevcar,fordcar]
+for (car in cars) {
+ var personRegExp = new RegExp("Audi");
+	if(audi.test(cars[car]["Vehicle Name"])){
+		audicar.push(cars[car])
+	}
+	if(ford.test(cars[car]["Vehicle Name"])){
+		fordcar.push(cars[car])
+	}
+	if(bmw.test(cars[car]["Vehicle Name"])){
+		bmwcar.push(cars[car])
+	}
+	if(chev.test(cars[car]["Vehicle Name"])){
+		chevcar.push(cars[car])
+	}
+
+	
+}
+data = audicar
+keys = ["Retail Price","Engine Size (l)","HP", "City MPG", "Hwy MPG",]
+ color.domain(keys);
+
+  data.forEach(function(d) {
+    d.date = parseDate(d["Vehicle Name"]);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d["Vehicle Name"], temperature: +d[name]};
+      })
+    };
+  });
+
+  for (city in cities) {
+	////console.log(city)
+	citymax = d3.max(cities[city].values, function(v) { return v.temperature; })
+	 cities[city].values.forEach(function(d) {
+    d.temperature =  d.temperature/citymax;
+	});
+//	//console.log(cities[city])
+	
+  
+  }
+//  //console.log(cities);
+  x.domain(d3.extent(data, function(d,i) { return i; }));
+// x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([
+    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
+    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+  ]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+    //  .attr("transform", "rotate(-90)")
+      .attr("y", 2)
+	   .attr("x", 180)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	   .style("font-size","14px")
+      .text("Audi(Normalized Data");
+
+  var city = svg.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+	   .attr("data-legend",function(d) { return d.name})
+      .style("stroke", function(d) { return color(d.name); });
+
+  
+ 
+ legend = svg.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(30,30)")
+    .style("font-size","12px")
+    .call(d3.legend)
+	
+data = bmwcar
+keys = ["Retail Price","Engine Size (l)","HP", "City MPG", "Hwy MPG",]
+ color.domain(keys);
+
+  data.forEach(function(d) {
+    d.date = parseDate(d["Vehicle Name"]);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d["Vehicle Name"], temperature: +d[name]};
+      })
+    };
+  });
+
+  for (city in cities) {
+	////console.log(city)
+	citymax = d3.max(cities[city].values, function(v) { return v.temperature; })
+	 cities[city].values.forEach(function(d) {
+    d.temperature =  d.temperature/citymax;
+	});
+//	//console.log(cities[city])
+	
+  
+  }
+//  //console.log(cities);
+  x.domain(d3.extent(data, function(d,i) { return i; }));
+// x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([
+    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
+    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+  ]);
+
+  svg1.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg1.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+    //  .attr("transform", "rotate(-90)")
+      .attr("y", 2)
+	  .attr("x", 180)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	   .style("font-size","14px")
+      .text("BMW (Normalised Data)");
+
+  var city = svg1.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+	   .attr("data-legend",function(d) { return d.name})
+      .style("stroke", function(d) { return color(d.name); });
+
+ 
+ 
+ legend = svg1.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(30,30)")
+    .style("font-size","12px")
+    .call(d3.legend)
+
+	
+data = fordcar
+keys = ["Retail Price","Engine Size (l)","HP", "City MPG", "Hwy MPG",]
+ color.domain(keys);
+
+  data.forEach(function(d) {
+    d.date = parseDate(d["Vehicle Name"]);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d["Vehicle Name"], temperature: +d[name]};
+      })
+    };
+  });
+
+  for (city in cities) {
+	////console.log(city)
+	citymax = d3.max(cities[city].values, function(v) { return v.temperature; })
+	 cities[city].values.forEach(function(d) {
+    d.temperature =  d.temperature/citymax;
+	});
+//	//console.log(cities[city])
+	
+  
+  }
+//  //console.log(cities);
+  x.domain(d3.extent(data, function(d,i) { return i; }));
+// x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([
+    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
+    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+  ]);
+
+  svg2.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg2.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+  //    .attr("transform", "rotate(-90)")
+      .attr("y", 2)
+	    .attr("x", 180)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	   .style("font-size","14px")
+      .text("Mercedes(Normalised)");
+
+  var city = svg2.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+	   .attr("data-legend",function(d) { return d.name})
+      .style("stroke", function(d) { return color(d.name); });
+
+
+ 
+ legend = svg2.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(30,30)")
+    .style("font-size","12px")
+    .call(d3.legend)	
+	
+		
+data = chevcar
+keys = ["Retail Price","Engine Size (l)","HP", "City MPG", "Hwy MPG",]
+ color.domain(keys);
+
+  data.forEach(function(d) {
+    d.date = parseDate(d["Vehicle Name"]);
+  });
+
+  var cities = color.domain().map(function(name) {
+    return {
+      name: name,
+      values: data.map(function(d) {
+        return {date: d["Vehicle Name"], temperature: +d[name]};
+      })
+    };
+  });
+
+  for (city in cities) {
+	////console.log(city)
+	citymax = d3.max(cities[city].values, function(v) { return v.temperature; })
+	 cities[city].values.forEach(function(d) {
+    d.temperature =  d.temperature/citymax;
+	});
+//	//console.log(cities[city])
+	
+  
+  }
+//  //console.log(cities);
+  x.domain(d3.extent(data, function(d,i) { return i; }));
+// x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([
+    d3.min(cities, function(c) { return d3.min(c.values, function(v) { return v.temperature; }); }),
+    d3.max(cities, function(c) { return d3.max(c.values, function(v) { return v.temperature; }); })
+  ]);
+
+  svg3.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg3.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+     // .attr("transform", "rotate(-90)")
+      .attr("y", 2)
+	   .attr("x", 190)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	   .style("font-size","14px")
+      .text("Chevrolev(Normalized Data)");
+
+  var city = svg3.selectAll(".city")
+      .data(cities)
+    .enter().append("g")
+      .attr("class", "city");
+
+  city.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+	   .attr("data-legend",function(d) { return d.name})
+      .style("stroke", function(d) { return color(d.name); });
+
+ 
+ legend = svg3.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(30,30)")
+    .style("font-size","12px")
+    .call(d3.legend)
+
+  
+  
+  var nodes = []
+  var node = {
+  name:'',
+  type:'',
+  value:''
+  }
+  var audiAgg = {
+  count :0,
+  price :0,
+  engine:0,
+  hp:0,
+  city:0,
+  hw:0
+  }
+  for (cars in all[0]){
+  audiAgg.count =audiAgg.count +1
+  audiAgg.price += all[0][cars]["Retail Price"]
+  audiAgg.engine += all[0][cars][ "Engine Size (l)"]
+  audiAgg.hp += all[0][cars][ "HP"]
+  audiAgg.city += all[0][cars]["City MPG"]
+  audiAgg.hw += all[0][cars]["Hwy MPG"]
+  }
+ //console.log(audiAgg)
+ node.name = 'Audi'
+ node.type = 'Count'
+ node.value =  audiAgg.count
+ nodes.push(node)
+ 
+  audiAgg.price =  audiAgg.price/ audiAgg.count
+  audiAgg.engine = audiAgg.engine/audiAgg.count
+  audiAgg.hp =  audiAgg.hp/audiAgg.count
+  audiAgg.city =  audiAgg.city /audiAgg.count
+  audiAgg.hw =  audiAgg.hw/audiAgg.count
+ var node = {
+  name:'Audi',
+  type:'',
+  value:''
+  }  
+   node.type = 'Price'
+ node.value =  audiAgg.price
+ nodes.push(node)
+   var node = {
+  name:'Audi',
+  type:'',
+  value:''
+  }
+  node.type = 'HP'
+ node.value =  audiAgg.hp
+ nodes.push(node)
+ var node = {
+  name:'Audi',
+  type:'',
+  value:''
+  } 
+ node.type = 'City'
+ node.value =  audiAgg.city
+ nodes.push(node) 
+ var node = {
+  name:'Audi',
+  type:'',
+  value:''
+  }
+ node.type = 'HW'
+ node.value =  audiAgg.hw
+  nodes.push(node) 
+ //console.log(nodes)
+   var node = {
+  name:'Audi',
+  type:'',
+  value:''
+  }
+ node.type = 'Engine'
+ node.value =  audiAgg.engine
+  nodes.push(node)
+ 
+ var bmwAgg = {
+  count :0,
+  price :0,
+  engine:0,
+  hp:0,
+  city:0,
+  hw:0
+  }
+  for (cars in all[1]){
+  bmwAgg.count =bmwAgg.count +1
+  bmwAgg.price += all[1][cars]["Retail Price"]
+  bmwAgg.engine += all[1][cars][ "Engine Size (l)"]
+  bmwAgg.hp += all[1][cars][ "HP"]
+  bmwAgg.city += all[1][cars]["City MPG"]
+  bmwAgg.hw += all[1][cars]["Hwy MPG"]
+  }
+ //console.log(bmwAgg)
+  bmwAgg.price =  bmwAgg.price/ bmwAgg.count
+  bmwAgg.engine = bmwAgg.engine/bmwAgg.count
+  bmwAgg.hp =  bmwAgg.hp/bmwAgg.count
+  bmwAgg.city =  bmwAgg.city /bmwAgg.count
+  bmwAgg.hw =  bmwAgg.hw/bmwAgg.count
+  
+ //console.log(bmwAgg)
+ var node = {
+  name:'Bmw',
+  type:'Count',
+  value:bmwAgg.count
+  }  
+  nodes.push(node)
+    var node = {
+  name:'Bmw',
+  type:'',
+  value:''
+  }
+ node.type = 'Engine'
+ node.value =  bmwAgg.engine
+  nodes.push(node)
+ var node = {
+  name:'Bmw',
+  type:'',
+  value:''
+  }  
+   node.type = 'Price'
+ node.value =  bmwAgg.price
+ nodes.push(node)
+   var node = {
+  name:'Bmw',
+  type:'',
+  value:''
+  }
+  node.type = 'HP'
+ node.value =  bmwAgg.hp
+ nodes.push(node)
+ var node = {
+  name:'Bmw',
+  type:'',
+  value:''
+  } 
+ node.type = 'City'
+ node.value =  bmwAgg.city
+ nodes.push(node) 
+ var node = {
+  name:'Bmw',
+  type:'',
+  value:''
+  }
+ node.type = 'HW'
+ node.value =  bmwAgg.hw
+  nodes.push(node) 
+ 
+ 
+ var chevAgg = {
+  count :0,
+  price :0,
+  engine:0,
+  hp:0,
+  city:0,
+  hw:0
+  }
+  for (cars in all[2]){
+  chevAgg.count =chevAgg.count +1
+  chevAgg.price += all[2][cars]["Retail Price"]
+  chevAgg.engine += all[2][cars][ "Engine Size (l)"]
+  chevAgg.hp += all[2][cars][ "HP"]
+  chevAgg.city += all[2][cars]["City MPG"]
+  chevAgg.hw += all[2][cars]["Hwy MPG"]
+  }
+ //console.log(chevAgg)
+  chevAgg.price =  chevAgg.price/ chevAgg.count
+  chevAgg.engine = chevAgg.engine/chevAgg.count
+  chevAgg.hp =  chevAgg.hp/chevAgg.count
+  chevAgg.city =  chevAgg.city /chevAgg.count
+  chevAgg.hw =  chevAgg.hw/chevAgg.count
+  
+ //console.log(chevAgg)
+ var node = {
+  name:'Chev',
+  type:'Count',
+  value:chevAgg.count
+  }  
+  nodes.push(node)
+   var node = {
+  name:'Chev',
+  type:'',
+  value:''
+  }
+ node.type = 'Engine'
+ node.value =  chevAgg.engine
+  nodes.push(node) 
+ var node = {
+  name:'Chev',
+  type:'',
+  value:''
+  }  
+   node.type = 'Price'
+ node.value =  chevAgg.price
+ nodes.push(node)
+   var node = {
+  name:'Chev',
+  type:'',
+  value:''
+  }
+  node.type = 'HP'
+ node.value =  chevAgg.hp
+ nodes.push(node)
+ var node = {
+  name:'Chev',
+  type:'',
+  value:''
+  } 
+ node.type = 'City'
+ node.value =  chevAgg.city
+ nodes.push(node) 
+ var node = {
+  name:'Chev',
+  type:'',
+  value:''
+  }
+ node.type = 'HW'
+ node.value =  chevAgg.hw
+  nodes.push(node) 
+ var mercAgg = {
+  count :0,
+  price :0,
+  engine:0,
+  hp:0,
+  city:0,
+  hw:0
+  }
+  for (cars in all[3]){
+  mercAgg.count =mercAgg.count +1
+  mercAgg.price += all[3][cars]["Retail Price"]
+  mercAgg.engine += all[3][cars][ "Engine Size (l)"]
+  mercAgg.hp += all[3][cars][ "HP"]
+  mercAgg.city += all[3][cars]["City MPG"]
+  mercAgg.hw += all[3][cars]["Hwy MPG"]
+  }
+ //console.log(mercAgg)
+  mercAgg.price =  mercAgg.price/ mercAgg.count
+  mercAgg.engine = mercAgg.engine/mercAgg.count
+  mercAgg.hp =  mercAgg.hp/mercAgg.count
+  mercAgg.city =  mercAgg.city /mercAgg.count
+  mercAgg.hw =  mercAgg.hw/mercAgg.count
+  
+ //console.log(mercAgg)
+ 
+ var node = {
+  name:'Merc',
+  type:'Count',
+  value:mercAgg.count
+  }  
+  nodes.push(node)
+ var node = {
+  name:'Merc',
+  type:'',
+  value:''
+  }  
+   node.type = 'Price'
+ node.value =  mercAgg.price
+ nodes.push(node)
+   var node = {
+  name:'Merc',
+  type:'',
+  value:''
+  }
+  node.type = 'HP'
+ node.value =  mercAgg.hp
+ nodes.push(node)
+ var node = {
+  name:'Merc',
+  type:'',
+  value:''
+  } 
+ node.type = 'City'
+ node.value =  mercAgg.city
+ nodes.push(node) 
+ var node = {
+  name:'Merc',
+  type:'',
+  value:''
+  }
+ node.type = 'HW'
+ node.value =  mercAgg.hw
+  nodes.push(node) 
+    var node = {
+  name:'Merc',
+  type:'',
+  value:''
+  }
+ node.type = 'Engine'
+ node.value =  mercAgg.engine
+  nodes.push(node)
+ // for (city in nodes) {
+	//console.log(city)
+	city = d3.max(nodes, function(v) {  if(v.type == 'City'){return v.value;} })
+	price = d3.max(nodes, function(v) {  if(v.type == 'Price'){return v.value;} })
+	hw = d3.max(nodes, function(v) {  if(v.type == 'HW'){return v.value;} })
+	hp = d3.max(nodes, function(v) {  if(v.type == 'HP'){return v.value;} })
+	count = d3.max(nodes, function(v) {  if(v.type == 'Count'){return v.value;} })
+	engine = d3.max(nodes, function(v) {  if(v.type == 'Engine'){return v.value;} })
+	
+	
+	city1 = d3.max(nodes, function(v) {  if(v.type == 'City'){ v.value = v.value/city;return v.value;} })
+	price1 = d3.max(nodes, function(v) {  if(v.type == 'Price'){v.value = v.value/price;return v.value;} })
+	hw1 = d3.max(nodes, function(v) {  if(v.type == 'HW'){v.value = v.value/hw;return v.value;} })
+	hp1= d3.max(nodes, function(v) {  if(v.type == 'HP'){v.value = v.value/hp;return v.value;} })
+	count1 = d3.max(nodes, function(v) {  if(v.type == 'Count'){v.value = v.value/count;return v.value;} })
+	engine1 = d3.max(nodes, function(v) {  if(v.type == 'Engine'){v.value = v.value/engine;return v.value;} })
+//	}
+	console.log(city)
+	
+	// cities[city].values.forEach(function(d) {
+   // d.temperature =  d.temperature/citymax;
+//	});
+  
+  var gfNodes = []; 
+
+  force
+      .nodes(nodes)
+ //     .links(graph.links)
+      .start();
+
+keys = ["BMW","Merc","Audi", "Chev"]
+ color.domain(keys);
+  var node = svg5.selectAll(".node")
+    .data(force.nodes())
+	 
+	.enter().append("g")
+    .attr("class", "node")
+	.attr("data-legend",function(d) { return d.type})
+	.attr("data-legend-color",function(d) { 	switch(d.type) {
+										case 'Price':
+											return 'red';
+										case 'City':
+											return '#8c510a';
+										case 'HW':
+											return '#dfc27d';
+										case 'HP' : 
+											return '#35978f';
+										case 'Count' :
+											return '#f6e8c3'
+										case 'Engine' :
+											return '#80cdc1'
+										case 6 :
+											return '#35978f'
+										case 7 :
+											return '#49006a'
+										case 8 :
+											return '#dfc27d'
+										case 10 :
+											return 'blue'
+										default:
+											return 'blue'
+									}})
+	
+	 .style("stroke", function(d) { return color(d.name); })
+//	.on("dblclick", dblclick)
+//	.on("mouseover",mouseover)
+//	.on("mouseout",mouseout)
+   .call(force.drag);
+
+node.append("circle")
+//5 +.4*d.coolness
+    .attr("r",function(d) { return 20*d.value })
+   .style("fill", function(d) { 
+	//console.log(d)
+									switch(d.type) {
+										case 'Price':
+											return 'red';
+										case 'City':
+											return '#8c510a';
+										case 'HW':
+											return '#dfc27d';
+										case 'HP' : 
+											return '#35978f';
+										case 'Count' :
+											return '#f6e8c3'
+										case 'Engine' :
+											return '#80cdc1'
+										case 6 :
+											return '#35978f'
+										case 7 :
+											return '#49006a'
+										case 8 :
+											return '#dfc27d'
+										case 10 :
+											return 'blue'
+										default:
+											return 'blue'
+									}
+								}
+                        );
+
+node.append("text")
+    .attr("x", -10)
+    .attr("dy", ".35em")
+	.style("text-anchor", "end")
+	   .style("font-size","12px")
+    .text(function(d) { return d.name + ' ' + d.type; });
+  
+   force.on("tick", function() {
+	node
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+   
+  });
+  legend = svg5.append("g")
+    .attr("class","legend")
+    .attr("transform","translate(30,30)")
+    .style("font-size","12px")
+    .call(d3.legend)	
+ });
+   
+ 
+
+</script></body></html>

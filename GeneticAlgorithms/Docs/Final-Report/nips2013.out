@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{BACKGROUND-CATEGORIZATION OF DISCOURSE RELATIONS }{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Discourse Relations}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{DISCOURSE RELATION IMPORTANT FOR SENTIMENT ANALYSIS}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Discourse Relations}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{RST Parser}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Feature Space /Algorithm}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Background - RST Relation}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Algorithm}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Feature Space}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Evaluation and Results}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Implementation}{section.5}% 12
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Dataset 1}{subsection.5.1}% 13
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Dataset 2}{subsection.5.1}% 14
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Dataset 3}{subsection.5.1}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Close Evaluation}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 17
+\BOOKMARK [2][-]{subsection.6.1}{Movie Reviews and Restaurant Reviews}{section.6}% 18
+\BOOKMARK [1][-]{section.7}{Enhancements - Domain adaptation/Cross-Domain Sentiment Classification }{}% 19
+\BOOKMARK [2][-]{subsection.7.1}{Introduction}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.2}{State of Art Algorithms}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.3}{Algorithm - Discourse as Pivot Feature}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.4}{Evaluation Domain Adaptation}{section.7}% 23
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 24
+\BOOKMARK [1][-]{section.9}{References}{}% 25

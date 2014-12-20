@@ -1,0 +1,11 @@
+When we take coolness to get the size , we get image like BadLinearActual1 ( check BestLinear )  provided. Basically as coolness is not a normalised number it can take any value. Thus circles with very large coolness value occupy the whole container layout. Also because just see size , so smaller onces are often ignored compared to bigger size. For squareroot (sqrt,SqrtActual and SquareRoot) is a much better approach because now when we take the square root then we kind of reduce their size. Also relative size is also decrease. Example difference between 2500 and 1 is much bigger than 50 and 1. Thus it gives us better view. However, this too has disadvantage of converging closer values example it har to differntiate entities with values 36 and 39. For the rest of the project, I have taken linear pool approach, that is I take (5 + .04* coolness), this one can be seen in images BestLinear. This approach kind of takes advantages of both the system.
+
+Image with filtered labels is JustFilteredLabels. For linear with scaling seems better here, but with root smaller ones are completely ignored as can be seen in FilteredLabelsRoot. Three additional images are provided for filtered data where even nodes and edges are removed depending on the filter -- bestFiltered, linearFilter and rootfilter.For linear , we get almost the same type of graph. However, incase of square root because we are ignoring very small size nodes, thus graph is much more readable now.
+
+In order to make the graph look less clustered  and more readable, I did the following. 
+	First I have filtered out nodes and edges with less than 2 coolness in the current graph.
+	Removed labels for nodes less than 10 coolness.(Details can still be seen through tooltip)
+	I have increased the linkDistance property to increase the length of edges to avoid clustering.
+	For ideal node size, I used the following (5 + .04* coolness) as radius, as it gave me advantages over simple linear or root based radius graph.
+	Increased the size and type of Font to make it more readable.
+	Changed the link and Charge Size

@@ -1,0 +1,5 @@
+In this task we have to find weight on incoming edges. So important features in this problem are the target and weight element (incoming as no role).
+Here in spark, we read the file. Now , we use map function on this file variable. In the map, for each line in the file/document, we output the target and the weight. Basically inside map , for each line , we split and use second part(target) for key and third part(weight) as value.
+Then we use reducebykey(), where we add all values associated with a target node.
+
+In the end , for formatting the data, we again use map function. In the map, we append first and second components and add a tab between the two concatination.

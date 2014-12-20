@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://poloclub.gatech.edu/cse6242/2014fall/hw2/graph.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<style>
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.rect:hover {
+  fill: brown;
+}
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+</style>
+
+
+<title>Cars</title>
+</head>
+
+<body>
+
+<div id="area1"></div>
+<div id="area2"></div>
+<script src="./graph_files/d3.v3.min.js"></script>
+<script src="./graph_files/d3.tip.v0.6.3.js"></script>
+<script>
+
+
+
+
+
+//Add our canvas
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var x1 = d3.scale.ordinal();
+
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+   // .ticks(10, "%");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	
+var svg1 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var svg2 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var svg3 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//Select the miserables data ;)
+
+d3.json("cars.json", function(error, graph) {
+cars = graph.nodes
+//cars.append("Acura NSX coupe 2dr manual S")
+var sportscar = []
+for (car in cars) {
+	if(cars[car]["Vehicle Name"] == "Acura NSX coupe 2dr manual S"){
+		sportscar.push(cars[car])
+	}
+	if(cars[car]["Vehicle Name"] == "Chevrolet Corvette 2dr"){
+		sportscar.push(cars[car])
+	}
+	if(cars[car]["Vehicle Name"] == "Audi RS 6 4dr"){
+		sportscar.push(cars[car])
+	}
+	if(cars[car]["Vehicle Name"] == "Audi TT 1.8 Quattro 2dr (convertible)"){
+		sportscar.push(cars[car])
+	}
+	if(cars[car]["Vehicle Name"] == "BMW M3 coupe 2dr"){
+		sportscar.push(cars[car])
+	}
+	
+}
+
+data = sportscar
+ x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([0,10000+ d3.max(data, function(d) {
+  return d["Retail Price"]; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+    //  .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+	  .attr("x", 80)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	  .style("font-size","14px")
+	  .text("Price (USD)");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d["Vehicle Name"]); })
+      .attr("width", x.rangeBand() -10)
+      .attr("y", function(d) { return y(d["Retail Price"]); })
+      .attr("height", function(d) { return height - y(d["Retail Price"]); });
+	  
+	
+
+ x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([0,.5+d3.max(data, function(d) {
+  return d[ "Engine Size (l)"]; })]);	
+ svg1.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg1.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+  //    .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+	   .attr("x", 80)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	  .style("font-size","14px")
+      .text("Engine Size");
+	  
+   svg1.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d["Vehicle Name"]); })
+      .attr("width", x.rangeBand()-10)
+      .attr("y", function(d) { return y(d[ "Engine Size (l)"]); })
+      .attr("height", function(d) { return height - y(d[ "Engine Size (l)"]); });
+
+ x.domain(data.map(function(d) { return d["Vehicle Name"]; }));
+  y.domain([0,100+ d3.max(data, function(d) {
+  return d[ "HP"]; })]);	
+ svg2.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg2.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+  //    .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+	   .attr("x", 85)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	  .style("font-size","14px")
+      .text("Horse Power");
+	  
+   svg2.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d["Vehicle Name"]); })
+	  
+      .attr("width", x.rangeBand() - 10)
+      .attr("y", function(d) { return y(d[ "HP"]); })
+      .attr("height", function(d) { return height - y(d[ "HP"]); });
+	  
+	  
+
+ var ageNames=[]// = d3.keys(data[0]).filter(function(key) { return key == "Vehicle Name"; });
+  data.forEach(function(d) {
+	ageNames.push(d["Vehicle Name"])
+  });
+ console.log(ageNames)
+ var c = {
+  mpg:"City MPG",
+   
+ ages : []
+ }
+ 
+ var h = {
+ mpg :"Hwy MPG",
+ ages : []
+ }
+ ndata = [c,  h]
+ ndata.forEach(function(nd) {
+//  data.forEach(function(d) {
+  for(d in ageNames){
+  console.log(nd)
+  console.log(data[d]);
+	nd.ages.push( {
+		name: ageNames[d], value: +data[d][nd.mpg]
+	})
+  }
+  //  nd.ages = ageNames.map(function(name) { return {name: name, value: +d[nd.mpg]}; });
+  });
+ // });
+console.log(ndata)
+  x.domain(ndata.map(function(d) { return d.mpg; }));
+  x1.domain(ageNames).rangeRoundBands([0, x.rangeBand()]);
+  y.domain([0,10+ d3.max(ndata, function(d) {  return d3.max(d.ages, function(d) { return d.value; }); })]);
+
+  svg3.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg3.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+    //  .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+	   .attr("x", 110)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+	  .style("font-size","14px")
+      .text("Mile Per Gallon");
+
+  var state = svg3.selectAll(".state")
+      .data(ndata)
+    .enter().append("g")
+      .attr("class", "g")
+      .attr("transform", function(d) { return "translate(" + x(d.mpg) + ",0)"; });
+
+  state.selectAll("rect")
+     .data(function(d) { return d.ages; })
+    .enter().append("rect")
+	.attr("class", "rect")
+    .attr("width", x1.rangeBand())
+    .attr("x", function(d) { return x1(d.name); })
+    .attr("y", function(d) { return y(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    .style("fill", function(d) { return color(d.name); });
+
+  var legend = svg3.selectAll(".legend")
+      .data(ageNames.slice().reverse())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 50)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 55)
+      .attr("y", 9)
+	  .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+ });
+ 
+  
+ // node.append("title")
+  //    .text(function(d) { return d.name; });
+
+	  
+//	  node.append("circle")
+ //   .attr("r", 5);
+
+// add the text 
+
+
+
+
+ // var labels = node.append("text")
+ //     .text(function(d) { return d.name; });
+
+//Update stuff for animation:
+//   This takes the physics simulation for the force directed graph and
+//   sets the location of the nodes and edges to the new positions
+  
+
+</script></body></html>

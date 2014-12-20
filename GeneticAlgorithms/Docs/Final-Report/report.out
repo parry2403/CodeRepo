@@ -1,0 +1,20 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Literature Overview}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Sustainable Multi-objective Land Use Allocation \(SMOLA\)}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Non-dominated Sorting Genetic Algorithm-II \(NSGA-II\)}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{ NSGA-II Multi Objective Land Usage \(NSGA-II-MOLU\)}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Formal Model}{}% 6
+\BOOKMARK [1][-]{section.4}{Approach}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Genetic Algorithms }{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{NSGA 2}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Supported Objectives}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Synthetic Dataset}{}% 11
+\BOOKMARK [2][-]{subsection.5.1}{Dataset}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.2}{Results on Synthetic Dataset}{section.5}% 13
+\BOOKMARK [1][-]{section.6}{North Carolina Dataset}{}% 14
+\BOOKMARK [2][-]{subsubsection.6.0.1}{Contiguity -Limit}{section.6}% 15
+\BOOKMARK [3][-]{subsubsection.6.0.2}{Contiguity -Limit-Attractiveness}{subsubsection.6.0.1}% 16
+\BOOKMARK [1][-]{section.7}{Summary of earlier work}{}% 17
+\BOOKMARK [2][-]{subsubsection.7.0.3}{Multi Objective Land Use Problem -Zielinska}{section.7}% 18
+\BOOKMARK [3][-]{subsubsection.7.0.4}{Spatial multi-objective land use optimization: extensions to the non- dominated sorting genetic algorithm-II -CAO}{subsubsection.7.0.3}% 19
+\BOOKMARK [3][-]{subsubsection.7.0.5}{Evolutionary Multi-objective Optimization for landscape system design - Roberts}{subsubsection.7.0.3}% 20

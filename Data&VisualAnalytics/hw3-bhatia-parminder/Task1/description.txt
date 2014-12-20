@@ -1,0 +1,3 @@
+In this task we have to find weight on incoming edges. So important features in this problem are the target and weight element (incoming as no role).
+In the Map phase, for each line which we receive as input , we tokenize it with “tab” to get input ,target and weight. In the reduce stage , we send <target,weight> as key value pair to reduce phase.
+In the Reduce phase, we get target along with a Iterator object containing the weights associated with that target. So we just sum all the values and save them in output.collect, where key is again target and value is this sum.This value is saved in the file.

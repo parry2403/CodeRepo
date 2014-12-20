@@ -1,0 +1,13 @@
+Q2.2
+For the Car Category, I used bright green color, so that we can know to which category this car belongs. Same Concept is applied for AWD/RWD. (Note:Wagon,Minivan,Pickup could have been removed but that would lead to less information about types of vehicles). Then, I have used Heat Maps to provide correlation and difference in various entities. From Retail and Dealer Cost, if there is huge difference in color, then either dealer is making too high or too low profit. Similarly, Engine Size correlation with Cyl and HP can be captured to see how they vary. In the end 2 color gradient is used for Weight, WheelBase,Len,Width.
+
+Q3.1
+
+For the first 3 bar graphs ,I used steel blue color, as it is one of the highest used color for most effective bar graphs. I have also added the property of hover, so when we hover on particular bar, we can see its color change to brown. For the last part, I used brown color scales going into blue as it makes transition between the nodes of same cluster very smooth.
+
+Q3.2 While making use of Tableau , I have kept the color of a group as same and differentiated when goin for other group. This is because there are so many features of Tableau like selection of particular data ,tooltip etc (provided images for these too) which looked better in the current configuration.
+
+Q4 For the creative Visualization, Use Comparison.html. Two types of analysis are done here. In the first one average values for those mentioned entities for a particular type along with count for particular type. Data is then normalised , so as to compare it better. All properties are of one color. So, HP,Engine ,Price etc all are signed one color.We can compare lets say price for a particular type simply by moving all circles closer to each other. Similarly all properties for a particular type have neeb labelled with same color.
+
+As first part was more for comparison for particular property.
+In the second part, we have used multi graphs to find corelation between various properties of a brand. So from graph we can know whether there is any corelation between Engine Size and Price for a particular brand. This graph basically helps us judge corelation and to predict which brand provides best features for a given price. Here again we had to normalise data so that all properties could come in a same graph.

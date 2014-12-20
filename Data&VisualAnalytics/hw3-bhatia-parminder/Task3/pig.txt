@@ -1,0 +1,7 @@
+X  = LOAD 's3://cse6242-bigram-big/*' AS (bigram:chararray, year:int, count:double, books:double);
+B = GROUP X BY bigram;
+C = FOREACH B   GENERATE group, SUM(X.count)/SUM(X.books) AS av;
+K  = DISTINCT C;
+F = ORDER K BY av DESC, group ASC;
+Y = LIMIT F 10;
+STORE Y INTO 's3://cse6242-bhatia3/large-output';
