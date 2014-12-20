@@ -1,0 +1,117 @@
+Chip's Memory Is Here Today, Here Tomorrow@#%^&*NN	POS	NN	VBZ	RB	NN	,	NN	NN	
+TWO COMPANIES plan to market a new chip with ceramic circuits@#%^&*CD	NNS	VBP	TO	VB	DT	JJ	NN	IN	JJ	NNS	
+that store data@#%^&*IN	NN	NNS	
+even when the power is off.@#%^&*RB	WRB	DT	NN	VBZ	IN	.	
+Today's most widely used data-storing chips have "volatile" memories@#%^&*NN	POS	RBS	RB	VBN	JJ	NNS	VBP	``	JJ	''	NNS	
+-- their data disappear@#%^&*:	PRP$	NNS	VBP	
+if they aren't fed a steady diet of electricity,@#%^&*IN	PRP	VBP	RB	VBN	DT	JJ	NN	IN	NN	,	
+so they need external power supplies.@#%^&*IN	PRP	VBP	JJ	NN	NNS	.	
+National Semiconductor Corp. and a start-up@#%^&*NNP	NNP	NNP	CC	DT	NN	
+named Ramtron Corp.@#%^&*VBN	NNP	NNP	.	
+plan to start shipping so-called ferroelectric memories,@#%^&*NN	TO	VB	VBG	JJ	JJ	NNS	,	
+which can remember data for at least 10 years@#%^&*WDT	MD	VB	NNS	IN	IN	JJS	CD	NNS	
+without any current flowing to them.@#%^&*IN	DT	JJ	VBG	TO	PRP	.	
+The chips use materials, such as lead zirconate titanate,@#%^&*DT	NNS	VBP	NNS	,	JJ	IN	JJ	NN	NN	,	
+to form microscopic switches@#%^&*TO	VB	JJ	NNS	
+that retain their data@#%^&*WDT	VBP	PRP$	NNS	
+without electricity.@#%^&*IN	NN	.	
+Developers caution@#%^&*NNS	VBP	
+that broad applications are several years away@#%^&*IN	JJ	NNS	VBP	JJ	NNS	RB	
+because the technology isn't fully refined.@#%^&*IN	DT	NN	VBZ	RB	RB	VBN	.	
+But Ramtron of Colorado Springs, Colo., plans to start shipping commercial quantities of simple ferroelectric chips in December.@#%^&*CC	NNP	IN	NNP	NNP	,	NNP	,	VBZ	TO	VB	VBG	JJ	NNS	IN	JJ	JJ	NNS	IN	NNP	.	
+The company expects the chips eventually to be used in devices@#%^&*DT	NN	VBZ	DT	NNS	RB	TO	VB	VBN	IN	NNS	
+that mimic a whole range of computer memory equipment,@#%^&*WDT	VBP	DT	JJ	NN	IN	NN	NN	NN	,	
+including floppy-disk and hard-disk drives.@#%^&*VBG	NN	CC	NN	NNS	.	
+National Semiconductor is getting ferroelectric technology from Krysalis Corp. in Albuquerque, N.M.@#%^&*NNP	NNP	VBZ	VBG	JJ	NN	IN	NNP	NNP	IN	NNP	,	NNP	.	
+National says@#%^&*NNP	VBZ	
+it agreed to acquire Krysalis's assets@#%^&*PRP	VBD	TO	VB	NNP	POS	NNS	
+and will start shipping commercial quantities of its first chips,@#%^&*CC	MD	VB	VBG	JJ	NNS	IN	PRP$	JJ	NNS	,	
+including a 4-kilobit memory,@#%^&*VBG	DT	JJ	NN	,	
+next year.@#%^&*JJ	NN	.	
+Once production hurdles are overcome,@#%^&*IN	NN	NNS	VBP	VBN	,	
+the chips could take over a significant part of the market.@#%^&*DT	NNS	MD	VB	RP	DT	JJ	NN	IN	DT	NN	.	
+In addition to not needing an outside power source,@#%^&*IN	NN	TO	RB	VBG	DT	JJ	NN	NN	,	
+they are potentially cheaper to make@#%^&*PRP	VBP	RB	JJR	TO	VB	
+because they require fewer manufacturing steps than conventional chips.@#%^&*IN	PRP	VBP	JJR	NN	NNS	IN	JJ	NNS	.	
+Military buyers have shown interest,@#%^&*JJ	NNS	VBP	VBN	NN	,	
+National says,@#%^&*NNP	VBZ	,	
+because ferroelectric chips resist atomic radiation.@#%^&*IN	JJ	NNS	VBP	JJ	NN	.	
+And@#%^&*CC	
+while today's non-volatile chips@#%^&*IN	NN	POS	JJ	NNS	
+-- such as electronically erasable programmable read-only memory chips --@#%^&*:	JJ	IN	RB	JJ	JJ	JJ	NN	NNS	:	
+can't be used in a computer's central memory@#%^&*MD	RB	VB	VBN	IN	DT	NN	POS	JJ	NN	
+because they "learn" data slowly,@#%^&*IN	PRP	``	VBP	''	NNS	RB	,	
+ferroelectric chips accept data at very high speeds.@#%^&*JJ	NNS	VBP	NNS	IN	RB	JJ	NNS	.	
+Showing Up in Court@#%^&*VBG	RP	IN	NNP	
+Without Being There@#%^&*IN	VBG	EX	
+AN AUSTIN, Texas, company plans to make it easy for you show up in court a thousand miles away@#%^&*DT	NNP	,	NNP	,	NN	VBZ	TO	VB	PRP	JJ	IN	PRP	VBP	RP	IN	NN	DT	CD	NNS	RB	
+without leaving town.@#%^&*IN	VBG	NN	.	
+Witnesses often must travel long distances@#%^&*NNS	RB	MD	VB	JJ	NNS	
+to give face-to-face depositions before lawyers and court reporters.@#%^&*TO	VB	JJ	NNS	IN	NNS	CC	NN	NNS	.	
+That means huge travel bills.@#%^&*DT	VBZ	JJ	NN	NNS	.	
+And telephone or videotape depositions just don't match physical encounters.@#%^&*CC	NN	CC	NN	NNS	RB	VBP	RB	VB	JJ	NNS	.	
+That could change, thanks to lower long-distance rates and cheaper electronics.@#%^&*DT	MD	VB	,	NNS	TO	VB	JJ	NNS	CC	JJR	NNS	.	
+Video Telecom Corp.,@#%^&*NNP	NNP	NNP	,	
+which markets videoconferencing systems,@#%^&*WDT	VBZ	NN	NNS	,	
+is working with court reporters@#%^&*VBZ	VBG	IN	NN	NNS	
+to wire a nationwide network@#%^&*TO	VB	DT	JJ	NN	
+to allow depositions by live television.@#%^&*TO	VB	NNS	IN	JJ	NN	.	
+The company installed a prototype system@#%^&*DT	NN	VBD	DT	NN	NN	
+that connects Dallas with Miami over digital phone lines.@#%^&*WDT	VBZ	NNP	IN	NNP	IN	JJ	NN	NNS	.	
+And it is preparing to set up shop in Chicago, New York and 10 other cities@#%^&*CC	PRP	VBZ	VBG	TO	VB	RP	NN	IN	NNP	,	NNP	NNP	CC	CD	JJ	NNS	
+where court-reporting agencies can tie conference rooms into the network.@#%^&*WRB	JJ	NNS	MD	VB	NN	NNS	IN	DT	NN	.	
+While lawyers arranged individual tie-ups before,@#%^&*IN	NNS	VBD	JJ	NNS	RB	,	
+the formal network of court reporters should make things easier and cheaper.@#%^&*DT	JJ	NN	IN	NN	NNS	MD	VB	NNS	JJR	CC	JJR	.	
+An attorney will be able to use the network for an hourly fee of between $200 and $400,@#%^&*DT	NN	MD	VB	JJ	TO	VB	DT	NN	IN	DT	JJ	NN	IN	IN	$	CD	CC	$	CD	,	
+depending on the quality of the picture,@#%^&*VBG	IN	DT	NN	IN	DT	NN	,	
+to take depositions from witnesses in any of the connected cities.@#%^&*TO	VB	NNS	IN	NNS	IN	DT	IN	DT	JJ	NNS	.	
+Japanese Reverse Tack On Patent Protection@#%^&*JJ	JJ	NN	IN	NNP	NNP	
+JAPAN'S MISUSE of U.S. patents has been a sore point for American chip makers.@#%^&*NNP	POS	NNP	IN	NNP	NNS	VBZ	VBN	DT	JJ	NN	IN	JJ	NN	NNS	.	
+Now at least one Japanese company is turning the courtroom tables.@#%^&*RB	IN	JJS	CD	JJ	NN	VBZ	VBG	DT	NN	NNS	.	
+Until now, most Japanese charges have been responses to suits against them.@#%^&*IN	RB	,	RBS	JJ	NNS	VBP	VBN	NNS	TO	NNS	IN	PRP	.	
+But last year Hitachi Ltd. surprised Japan's electronics industry@#%^&*CC	JJ	NN	NNP	NNP	VBD	NNP	POS	NNS	NN	
+when it accused Korea's Samsung Electronics Co. of using Hitachi technology@#%^&*WRB	PRP	VBD	NNP	POS	NNP	NNP	NNP	IN	VBG	NNP	NN	
+to make dynamic random-access memory chips.@#%^&*TO	VB	JJ	JJ	NN	NNS	.	
+(A settlement was reached@#%^&*NN	NN	NN	VBD	VBN	
+but wasn't made public.)@#%^&*CC	VBD	RB	VBN	JJ	.	NN	
+And Hitachi went on the offensive against the U.S.'s Motorola Inc. earlier this month with a suit@#%^&*CC	NNP	VBD	IN	DT	NN	IN	DT	NNP	POS	NNP	NNP	RBR	DT	NN	IN	DT	NN	
+charging@#%^&*VBG	
+that Motorola's new MC88200 chip infringes on a Hitachi patent.@#%^&*IN	NNP	POS	JJ	NNP	NN	VBZ	IN	DT	NNP	NN	.	
+Another recent Hitachi suit accuses Motorola of reverse engineering a Hitachi technology@#%^&*DT	JJ	NNP	NN	VBZ	NNP	IN	JJ	NN	DT	NNP	NN	
+-- a turnabout from a nation of champion reverse engineers.@#%^&*:	DT	NN	IN	DT	NN	IN	JJ	JJ	NNS	.	
+The moves illustrate the more aggressive attitude toward patent protection@#%^&*DT	NNS	VBP	DT	RBR	JJ	NN	IN	NN	NN	
+that@#%^&*IN	
+patent experts say@#%^&*NN	NNS	VBP	
+Japan is starting to take.@#%^&*NNP	VBZ	VBG	TO	VB	.	
+Hitachi made the reverse-engineering charges in an amendment to a counterclaim@#%^&*NNP	VBD	DT	NN	NNS	IN	DT	NN	TO	DT	NN	
+filed in a federal district court in Texas@#%^&*VBN	IN	DT	JJ	NN	NN	IN	NNP	
+after Motorola sued Hitachi for patent violation.@#%^&*IN	NNP	VBD	NNP	IN	NN	NN	.	
+Hitachi charges@#%^&*NNP	NNS	
+Motorola "has engaged in fraudulent and inequitable conduct in the procurement of certain Motorola patents"@#%^&*NNP	``	VBZ	VBN	IN	JJ	CC	JJ	NN	IN	DT	NN	IN	JJ	NNP	NNS	''	
+used in Motorola's MC68030 microprocessor chip.@#%^&*VBN	IN	NNP	POS	NNP	NN	NN	.	
+Translation:@#%^&*NN	:	
+Motorola appears to have taken a Hitachi technology@#%^&*NNP	VBZ	TO	VB	VBN	DT	NNP	NN	
+that is patented in the U.S.,@#%^&*WDT	VBZ	VBN	IN	DT	NNP	,	
+Hitachi says,@#%^&*NNP	VBZ	,	
+and "tried to make it look like a new technology."@#%^&*CC	``	VBD	TO	VB	PRP	VB	IN	DT	JJ	NN	.	''	
+Motorola either denied or wouldn't comment on the various charges.@#%^&*NNP	CC	VBN	CC	MD	RB	VB	IN	DT	JJ	NNS	.	
+Odds and Ends@#%^&*NNS	CC	NNS	
+COMPUTER chips@#%^&*NN	NNS	
+that simulate human vision@#%^&*WDT	VBP	JJ	NN	
+have been developed by Japan's Sharp Corp.@#%^&*VBP	VBN	VBN	IN	NNP	POS	NNP	NNP	.	
+They mimic the brain@#%^&*PRP	VBP	DT	NN	
+by "looking" at an image,@#%^&*IN	``	VBG	''	IN	DT	NN	,	
+extracting the fundamentals@#%^&*VBG	DT	NNS	
+-- boundaries, corners and lines --@#%^&*:	NNS	,	NNS	CC	NNS	:	
+and translating them into computer data.@#%^&*CC	VBG	PRP	IN	NN	NNS	.	
+Sharp says@#%^&*NNP	VBZ	
+the set of chips could improve fax machines, graphics computers or identification systems@#%^&*DT	NN	IN	NNS	MD	VB	NN	NNS	,	NNS	NNS	CC	NN	NNS	
+that recognize facial features.@#%^&*WDT	VBP	JJ	NNS	.	
+. . . An N.V. Philips unit has created a computer system@#%^&*.	.	.	DT	NNP	NNP	NN	VBZ	VBN	DT	NN	NN	
+that processes video images 3,000 times faster than conventional systems.@#%^&*WDT	VBZ	NN	NNS	CD	NNS	RBR	IN	JJ	NNS	.	
+Using reduced instruction-set computing, or RISC, chips@#%^&*VBG	VBN	NN	NN	,	CC	NNP	,	NNS	
+made by Intergraph of Huntsville, Ala.,@#%^&*VBN	IN	NNP	IN	NNP	,	NNP	,	
+the system splits the image@#%^&*DT	NN	VBZ	DT	NN	
+it "sees"@#%^&*PRP	``	VBZ	''	
+into 20 digital representations, each@#%^&*IN	CD	JJ	NNS	,	DT	
+processed by one chip.@#%^&*VBN	IN	CD	NN	.	

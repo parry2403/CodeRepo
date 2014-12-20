@@ -1,0 +1,57 @@
+Tandy Corp.,@#%^&*NNP	NNP	,	
+citing sluggish sales of consumer-electronics goods,@#%^&*VBG	JJ	NNS	IN	JJ	NNS	,	
+said@#%^&*VBD	
+net income dropped 3.3% for the first quarter@#%^&*JJ	NN	VBD	CD	NN	IN	DT	JJ	NN	
+ended Sept. 30.@#%^&*VBN	NNP	CD	.	
+The results,@#%^&*DT	NNS	,	
+which represented the fifth consecutive quarter of flat-to-lower earnings for the big electronics retailer,@#%^&*WDT	VBD	DT	JJ	JJ	NN	IN	JJ	NNS	IN	DT	JJ	NN	NN	,	
+disappointed analysts and traders.@#%^&*JJ	NNS	CC	NNS	.	
+Tandy's stock fell $1.375 a share@#%^&*NNP	POS	NN	VBD	$	CD	DT	NN	
+to close at $44@#%^&*TO	VB	IN	$	CD	
+in New York Stock Exchange composite trading.@#%^&*IN	NNP	NNP	NNP	NNP	JJ	NN	.	
+Net for the quarter was $62.8 million, or 73 cents a share, down from $64.9 million, or 72 cents a share, a year earlier.@#%^&*NN	IN	DT	NN	VBD	$	CD	CD	,	CC	CD	NNS	DT	NN	,	RB	IN	$	CD	CD	,	CC	CD	NNS	DT	NN	,	DT	NN	RBR	.	
+The company said@#%^&*DT	NN	VBD	
+earnings would have increased@#%^&*NNS	MD	VB	VBN	
+if it hadn't been actively repurchasing its shares,@#%^&*IN	PRP	VBD	RB	VBN	RB	VBG	PRP$	NNS	,	
+thus increasing its interest expense@#%^&*RB	VBG	PRP$	NN	NN	
+and reducing its interest income.@#%^&*CC	VBG	PRP$	NN	NN	.	
+Tandy had 86.3 million shares outstanding at Sept. 30, down from 90 million a year earlier.@#%^&*NNP	VBD	CD	CD	NNS	JJ	IN	NNP	CD	,	RB	IN	CD	CD	DT	NN	RBR	.	
+Revenue rose 5% to $986 million from $937 million.@#%^&*NN	VBD	CD	NN	TO	$	CD	CD	IN	$	CD	CD	.	
+Tandy said@#%^&*NNP	VBD	
+consumer electronics sales at its Radio Shack stores have been slow,@#%^&*NN	NNS	NNS	IN	PRP$	NNP	NNP	NNS	VBP	VBN	JJ	,	
+partly because of a lack of hot, new products.@#%^&*RB	IN	IN	DT	NN	IN	JJ	,	JJ	NNS	.	
+"Radio Shack continues to be lackluster,"@#%^&*``	NNP	NNP	VBZ	TO	VB	JJ	,	''	
+said Dennis Telzrow, analyst with Eppler, Guerin & Turner in Dallas.@#%^&*VBD	NNP	NNP	,	NN	IN	NNP	,	NNP	CC	NNP	IN	NNP	.	
+He said@#%^&*PRP	VBD	
+Tandy "has done a decent job"@#%^&*NNP	``	VBZ	VBN	DT	JJ	NN	''	
+increasing sales@#%^&*VBG	NNS	
+by manufacturing computers for others@#%^&*IN	VBG	NNS	IN	NNS	
+and expanding sales of its Grid Systems Corp. subsidiary, which sells computers to bigger businesses,@#%^&*CC	VBG	NNS	IN	PRP$	NNP	NNP	NNP	NN	,	WDT	VBZ	NNS	TO	JJR	NNS	,	
+but "it's not enough@#%^&*CC	``	PRP	VBZ	RB	RB	
+to offset the problems at Radio Shack."@#%^&*TO	VB	DT	NNS	IN	NNP	NNP	.	''	
+Sales at Radio Shack stores open more than a year grew only 2% in the quarter from a year earlier,@#%^&*NNS	IN	NNP	NNP	NNS	VBP	JJR	IN	DT	NN	VBD	RB	CD	NN	IN	DT	NN	IN	DT	NN	RBR	,	
+he said.@#%^&*PRP	VBD	.	
+As a result,@#%^&*IN	DT	NN	,	
+Mr. Telzrow said@#%^&*NNP	NNP	VBD	
+he cut his fiscal 1990 per-share earnings estimate for Tandy to $4.05 from $4.20.@#%^&*PRP	VBD	PRP$	JJ	CD	JJ	NNS	NN	IN	NNP	TO	$	CD	IN	$	CD	.	
+Tandy earned $88.8 million, or $3.64 a share, in the year@#%^&*NNP	VBD	$	CD	CD	,	CC	$	CD	DT	NN	,	IN	DT	NN	
+ended June 30.@#%^&*VBN	NNP	CD	.	
+Barry Bryant, an analyst with Drexel Burnham Lambert Inc., said@#%^&*NNP	NNP	,	DT	NN	IN	NNP	NNP	NNP	NNP	,	VBD	
+Tandy also has suffered from lethargic sales of its computers@#%^&*NNP	RB	VBZ	VBN	IN	JJ	NNS	IN	PRP$	NNS	
+aimed at the home and small-office market,@#%^&*VBN	IN	DT	NN	CC	JJ	NN	,	
+which are less-advanced and cheaper than computers@#%^&*WDT	VBP	JJ	CC	JJR	IN	NNS	
+aimed at the corporate market.@#%^&*VBN	IN	DT	JJ	NN	.	
+Tandy has added several new products to that line,@#%^&*NNP	VBZ	VBN	JJ	JJ	NNS	TO	DT	NN	,	
+including a laptop computer@#%^&*VBG	DT	JJ	NN	
+priced around $1,000,@#%^&*VBN	IN	$	CD	,	
+and is focusing its advertising on the easy-to-use software@#%^&*CC	VBZ	VBG	PRP$	NN	IN	DT	JJ	NN	
+that is packaged with its machines.@#%^&*WDT	VBZ	VBN	IN	PRP$	NNS	.	
+Mr. Bryant and other analysts hope@#%^&*NNP	NNP	CC	JJ	NNS	VBP	
+all those moves will combine@#%^&*PDT	DT	NNS	MD	VB	
+to help Tandy's results improve in the important Christmas quarter.@#%^&*TO	VB	NNP	POS	NNS	VBP	IN	DT	JJ	NNP	NN	.	
+"They've been promising 13% to 15% growth@#%^&*``	PRP	VBP	VBN	VBG	CD	NN	TO	CD	NN	NN	
+based on the strategic moves@#%^&*VBN	IN	DT	JJ	NNS	
+they've made,"@#%^&*PRP	VBP	VBN	,	''	
+he said.@#%^&*PRP	VBD	.	
+"If the earnings acceleration is to take place,@#%^&*``	IN	DT	NNS	NN	VBZ	TO	VB	NN	,	
+that should be the quarter."@#%^&*DT	MD	VB	DT	NN	.	''	

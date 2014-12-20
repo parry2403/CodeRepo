@@ -1,0 +1,10 @@
+Boeing Co. said@#%^&*NNP	NNP	VBD	
+Trans European Airways ordered a dozen 737 jetliners@#%^&*NNP	NNP	NNP	VBD	DT	NN	CD	NNS	
+valued at a total of about $450 million.@#%^&*VBN	IN	DT	NN	IN	IN	$	CD	CD	.	
+The 300 and 400 series aircraft will be powered by engines@#%^&*DT	CD	CC	CD	NN	NN	MD	VB	VBN	IN	NNS	
+jointly produced by General Electric Co. and Snecma of France.@#%^&*RB	VBN	IN	NNP	NNP	NNP	CC	NNP	IN	NNP	.	
+Currently, Boeing has a backlog of about $80 billion,@#%^&*RB	,	NNP	VBZ	DT	NN	IN	IN	$	CD	CD	,	
+but production has been slowed by a strike of 55,000 machinists,@#%^&*CC	NN	VBZ	VBN	VBN	IN	DT	NN	IN	CD	NNS	,	
+which entered its 22nd day today.@#%^&*WDT	VBD	PRP$	JJ	NN	NN	.	
+Last week, a mediator failed to rekindle talks between the company and the strikers,@#%^&*JJ	NN	,	DT	NN	VBD	TO	VB	NNS	IN	DT	NN	CC	DT	NNS	,	
+who have rejected a pay raise offer of 10% over three years.@#%^&*WP	VBP	VBN	DT	NN	NN	NN	IN	CD	NN	IN	CD	NNS	.	

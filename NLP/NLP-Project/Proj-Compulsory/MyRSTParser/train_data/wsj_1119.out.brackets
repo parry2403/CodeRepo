@@ -1,0 +1,6 @@
+((1, 1), 'Nucleus', 'span')
+((2, 2), 'Nucleus', 'span')
+((3, 3), 'Satellite', 'consequence')
+((2, 3), 'Satellite', 'elaboration')
+((1, 3), 'Nucleus', 'span')
+((4, 4), 'Satellite', 'elaboration')
