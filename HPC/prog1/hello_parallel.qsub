@@ -1,0 +1,19 @@
+#!/bin/bash
+: The above line tells Linux to use the shell /bin/bash to execute
+: this script.  That must be the first line in the script.
+
+: You must have no lines beginning with # before these
+: PBS lines other than the /bin/bash line
+#PBS -N 'hello_parallel'
+#PBS -o 'qsub.out'
+#PBS -e 'qsub.err'
+#PBS -W umask=007
+#PBS -q testing
+#PBS -l nodes=1:ppn=2
+#PBS -m bea
+
+: Change our current working directory to the directory from which you ran qsub:
+cd $PBS_O_WORKDIR
+
+: Run the mpi program
+mpirun --machinefile $PBS_NODEFILE --np 2 ./hello_parallel
